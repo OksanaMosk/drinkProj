@@ -3,6 +3,8 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Loader from 'components/Loader/Loader';
 
+import welcome from 'img/bg-welcome-desc@1x.jpg';
+
 import { HomePageWrapper, NavLink } from './HomePage.styled';
 
 const HomePage = () => {
@@ -29,6 +31,9 @@ const HomePage = () => {
             Sign In
           </NavLink>
         </div>
+      </section>
+      <section>
+        <img src={welcome} alt="{bg-welcome}" width="100%" height="100%"></img>
       </section>
     </HomePageWrapper>
   );
