@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
 
   return (
     <div>
-      <header>
+      {/* <header>
         <h1 className={css.mainTitle}>Phonebook</h1>
         {authenticated ? (
           <>
@@ -63,7 +63,7 @@ const Layout = ({ children }) => {
             </NavLink>
           </div>
         )}
-      </header>
+      </header> */}
       <main>{children}</main>
     </div>
   );

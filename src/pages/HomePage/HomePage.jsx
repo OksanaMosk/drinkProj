@@ -1,40 +1,36 @@
 import { useLocation } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+// import { NavLink as BaseNavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Loader from 'components/Loader/Loader';
 
-import photo1 from 'images/icons8-phonebook-96.png';
-import photo2 from 'images/icons8-add-a-new-contact-on-modern-cell-phone-96.png';
-
-import css from './HomePage.module.css';
+import { HomePageWrapper, NavLink } from './HomePage.styled';
 
 const HomePage = () => {
   const isLoadingAuth = useSelector(state => state.auth.isLoadingAuth);
   const location = useLocation();
 
   return (
-    <div className={css.home}>
-      {isLoadingAuth ? (
-        <Loader />
-      ) : (
-        <>
-          <NavLink
-            className={css.homePage1}
-            state={{ from: location }}
-            to="/add"
-          >
-            <img src={photo2} alt="{photo}" width={110} height={170}></img>
+    <HomePageWrapper>
+      <section>
+        <div>
+          <h2>Welcome to the app!</h2>
+          <p>
+            This app offers more than just a collection of recipes - it is
+            designed to be your very own digital cookbook. You can easily save
+            and retrieve your own recipes at any time.
+          </p>
+        </div>
+
+        <div>
+          <NavLink state={{ from: location }} to="/signup">
+            Sign Up
           </NavLink>
-          <NavLink
-            className={css.homePage2}
-            state={{ from: location }}
-            to="/contacts"
-          >
-            <img src={photo1} alt="{photo}" width={140} height={170}></img>
+          <NavLink state={{ from: location }} to="/signin">
+            Sign In
           </NavLink>
-        </>
-      )}
-    </div>
+        </div>
+      </section>
+    </HomePageWrapper>
   );
 };
 export default HomePage;
